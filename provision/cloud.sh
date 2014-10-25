@@ -5,22 +5,22 @@
 # Memcached
 ###########################################################
 
-#apt-get -y install memcached
+apt-get -y install memcached
 
 ###########################################################
 # Redis
 ###########################################################
 
-#apt-get -y install redis-server
+apt-get -y install redis-server
 
 ###########################################################
 # Beanstalkd
 ###########################################################
 
-#apt-get -y install beanstalkd
+apt-get -y install beanstalkd
 
 ###########################################################
 # Fabric
 ###########################################################
 
-#apt-get -y install fabric
+apt-get -y install fabric
