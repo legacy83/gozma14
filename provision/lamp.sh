@@ -1,5 +1,5 @@
 #!/bin/sh
-# Gozma LAMP Bash
+# Gozma14 LAMP Bash
 
 ###########################################################
 # Apache2

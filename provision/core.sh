@@ -1,5 +1,5 @@
 #!/bin/sh
-# Gozma Core Bash
+# Gozma14 Core Bash
 
 ###########################################################
 # System Update
@@ -31,6 +31,7 @@ dpkg-reconfigure -f noninteractive tzdata
 ###########################################################
 
 apt-get -y install sqlite
+apt-get -y install wget curl
 apt-get -y install subversion git-core
 apt-get -y install imagemagick zip unzip ngrep colordiff
 apt-get -y install gettext graphviz dos2unix
