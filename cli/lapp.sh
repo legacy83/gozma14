@@ -1,5 +1,4 @@
 #!/bin/sh
-# Gozma14 LAMP Bash
 
 ###########################################################
 # Apache2
@@ -12,14 +11,10 @@ a2enconf fqdn.conf
 a2enmod rewrite
 
 ###########################################################
-# MySQL
+# PostgreSQL
 ###########################################################
 
-MYSQL_ROOT_PASS='root@secret'
-
-echo "mysql-server mysql-server/root_password password $MYSQL_ROOT_PASS" | debconf-set-selections
-echo "mysql-server mysql-server/root_password_again password $MYSQL_ROOT_PASS" | debconf-set-selections
-apt-get -y install mysql-server
+apt-get -y install postgresql postgresql-contrib
 
 ###########################################################
 # PHP 5
