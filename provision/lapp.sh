@@ -22,7 +22,7 @@ apt-get -y install postgresql postgresql-contrib
 ###########################################################
 
 apt-get -y install php5 libapache2-mod-php5
-apt-get -y install php5-mysql php5-pgsql
+apt-get -y install php5-mysql php5-pgsql php5-sqlite
 apt-get -y install php5-memcache php5-redis
 apt-get -y install php5-imagick php5-mcrypt php5-imap php5-curl php-pear php5-gd
 
