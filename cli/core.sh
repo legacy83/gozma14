@@ -12,6 +12,7 @@ apt-get -y upgrade
 ###########################################################
 
 apt-get -y install language-pack-en
+apt-get -y install language-pack-pt
 echo "LANG=en_US.UTF-8" > /etc/default/locale
 echo "LC_ALL=en_US.UTF-8" >> /etc/default/locale
 
