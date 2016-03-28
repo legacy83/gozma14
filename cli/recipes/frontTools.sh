@@ -15,4 +15,8 @@ apt-get -y install npm
 npm install -g bower
 npm install -g gulp grunt-cli
 npm install -g less
+
 gem install sass
+gem install bourbon
+gem install neat
+gem install bitters
