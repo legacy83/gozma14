@@ -22,4 +22,12 @@ Vagrant.configure("2") do |config|
   config.vm.provision "shell", path: "cli/lamp.sh"
   config.vm.provision "shell", path: "cli/lapp.sh"
 
+  ###############################################################
+  # gozma14/recipes
+  ###############################################################
+
+  config.vm.provision "shell", path: "cli/recipes/frontTools.sh"
+  config.vm.provision "shell", path: "cli/recipes/apache2VirtualHosts.sh"
+  config.vm.provision "shell", path: "cli/recipes/apache2UnderVagrant.sh"
+
 end

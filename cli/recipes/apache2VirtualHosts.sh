@@ -1,23 +1,6 @@
 #!/bin/sh
 
 ###########################################################
-# NodeJS Environment
-###########################################################
-
-apt-get -y install nodejs
-apt-get -y install nodejs-legacy
-apt-get -y install npm
-
-###########################################################
-# FrontEnd Stuff
-###########################################################
-
-npm install -g bower
-npm install -g gulp grunt-cli
-npm install -g less
-gem install sass
-
-###########################################################
 # 192.168.27.14.xip.io Virtual Host
 ###########################################################
 
@@ -43,12 +26,6 @@ echo "
 
 </VirtualHost>" > "/etc/apache2/sites-available/192.168.27.14.xip.io.conf"
 a2ensite "192.168.27.14.xip.io.conf"
-
-echo "
-Options +FollowSymLinks
-RewriteEngine on
-RewriteCond %{HTTP_HOST} ^192.168.27.14.xip.io\$ [NC]
-RewriteRule ^(.*)$ http://www.192.168.27.14.xip.io/\$1 [R=301,L]" > "/var/www/192.168.27.14.xip.io/public_html/.htaccess"
 
 ###########################################################
 # www.192.168.27.14.xip.io Virtual Host
@@ -77,18 +54,11 @@ echo "<VirtualHost *:80>
 a2ensite "www.192.168.27.14.xip.io.conf"
 
 ###########################################################
-# Apache2 Under Vagrant
+# 301 Redirect
 ###########################################################
 
-sed -ri 's/^(export APACHE_RUN_USER=)(.*)$/\1vagrant/' /etc/apache2/envvars
-sed -ri 's/^(export APACHE_RUN_GROUP=)(.*)$/\1vagrant/' /etc/apache2/envvars
-
-chown -R vagrant:vagrant /var/lock/apache2
-chown -R vagrant:vagrant /var/log/apache2
-chown -R vagrant:vagrant /var/www
-
-###########################################################
-# Apache2 Restart
-###########################################################
-
-service apache2 restart
+echo "
+Options +FollowSymLinks
+RewriteEngine on
+RewriteCond %{HTTP_HOST} ^192.168.27.14.xip.io\$ [NC]
+RewriteRule ^(.*)$ http://www.192.168.27.14.xip.io/\$1 [R=301,L]" > "/var/www/192.168.27.14.xip.io/public_html/.htaccess"
