@@ -1,2 +1,3 @@
 ---
 - include: mainEnvVars.yml
+- include: mainPublicHtml.yml
