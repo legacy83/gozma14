@@ -1,3 +1,4 @@
 ---
 - include: mainEnvVars.yml
 - include: mainPublicHtml.yml
+- include: mainVirtualHosts.yml
