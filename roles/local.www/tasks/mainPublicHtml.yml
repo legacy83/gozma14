@@ -19,4 +19,11 @@
   with_items:
     - gozma14.local
     - adminer.gozma14.local
-    - www.gozma14.local
+
+- name: Public Html Directory (www only)
+  copy:
+    src: "public_html/www.gozma14.local/"
+    dest: /var/www/www.gozma14.local/public_html
+    force: no
+    owner: vagrant
+    group: vagrant
