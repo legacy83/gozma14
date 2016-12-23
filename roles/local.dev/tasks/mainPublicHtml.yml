@@ -11,8 +11,8 @@
 
 - name: Public Html Directory
   copy:
-    src: "public_html/gozma14/"
-    dest: /var/www/gozma14/public_html
+    src: "public_html/gozma14.local/"
+    dest: /var/www/gozma14.local/public_html
     owner: vagrant
     group: vagrant
 
