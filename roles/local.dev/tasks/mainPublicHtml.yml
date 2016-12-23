@@ -7,18 +7,18 @@
     state: directory
   with_items:
     - gozma14.local
-    - adminer.gozma14.local
     - www.gozma14.local
 
-- name: Public Html Directories
+- name: Public Html Directory
   copy:
-    src: "public_html/{{ item }}/"
-    dest: /var/www/{{ item }}/public_html
+    src: "public_html/gozma14/"
+    dest: /var/www/gozma14/public_html
     owner: vagrant
     group: vagrant
-  with_items:
-    - gozma14.local
-    - adminer.gozma14.local
+
+- name: Check Public Html Status for WWW
+  stat: path=/var/www/www.gozma14.local/public_html
+  register: www_public_html
 
 - name: Public Html Directory (www only)
   copy:
@@ -27,3 +27,4 @@
     force: no
     owner: vagrant
     group: vagrant
+  when: www_public_html.stat.islnk is not defined
