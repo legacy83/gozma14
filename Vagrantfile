@@ -1,5 +1,5 @@
 Vagrant.configure("2") do |config|
-  # Ubuntu 14.04 - Precise Pangolin
+  # Ubuntu 14.04 - Trusty Tahr
   config.vm.define "ubuntu14" do |ubuntu14|
     ubuntu14.vm.box = "bento/ubuntu-14.04"
     ubuntu14.vm.hostname = "gozma14"

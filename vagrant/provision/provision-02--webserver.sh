@@ -10,13 +10,9 @@ webserver_install() {
     php5-cli php5-common php5-dev \
     php5-pgsql php5-sqlite php5-gd \
     php5-curl php5-memcached \
-    php5-imap php5-mysql php5-intl \
+    php5-imap php5-mysqlnd php5-intl \
     php5-xmlrpc php5-xsl php5-imagick \
     php5-mcrypt php-apc php-pear
-
-
-    # - php5-mysqlnd
-
 }
 
 webserver_setup() {
