@@ -34,12 +34,23 @@ webserver_setup() {
     CustomLog ${APACHE_LOG_DIR}/access.log combined
   </VirtualHost>" > /etc/apache2/sites-available/000-default.conf
 
-  echo "ServerName localhost" > /etc/apache2/conf.d/name
+  if [ ! -f "/etc/apache2/conf-available/fqdn.conf" ];
+  then
+    echo "ServerName localhost" > /etc/apache2/conf-available/fqdn.conf
+    ln -s /etc/apache2/conf-available/fqdn.conf /etc/apache2/conf-enabled/fqdn.conf
+  fi
+
+  sed -i "s/memory_limit = .*/memory_limit = 256M/" /etc/php5/apache2/php.ini
+  sed -i "s/post_max_size = .*/post_max_size = 64M/" /etc/php5/apache2/php.ini
+  sed -i "s/upload_max_filesize = .*/upload_max_filesize = 32M/" /etc/php5/apache2/php.ini
+  sed -i "s/expose_php = .*/expose_php = Off/" /etc/php5/apache2/php.ini
 
   a2enmod expires
   a2enmod headers
   a2enmod include
   a2enmod rewrite
+
+  php5enmod mcrypt
 }
 
 webserver_ownership() {
