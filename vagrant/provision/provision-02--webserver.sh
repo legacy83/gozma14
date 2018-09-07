@@ -17,7 +17,6 @@ webserver_install() {
 
 webserver_setup() {
   local DOMAIN='gozma14.local'
-  local APACHE_LOG_DIR='/var/log/apache2'
 
   echo "<VirtualHost *:80>
     ServerName ${DOMAIN}
@@ -30,8 +29,8 @@ webserver_setup() {
     	Allow from all
     	AllowOverride All
     </Directory>
-    ErrorLog ${APACHE_LOG_DIR}/error.log
-    CustomLog ${APACHE_LOG_DIR}/access.log combined
+    ErrorLog \${APACHE_LOG_DIR}/error.log
+    CustomLog \${APACHE_LOG_DIR}/access.log combined
   </VirtualHost>" > /etc/apache2/sites-available/000-default.conf
 
   if [ ! -f "/etc/apache2/conf-available/fqdn.conf" ];
